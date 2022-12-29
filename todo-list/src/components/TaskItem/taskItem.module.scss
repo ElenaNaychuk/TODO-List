@@ -5,18 +5,13 @@
     .task__block {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid #c3c1c1;
 
         .task__text {
             font-family: 'Inter';
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 300;
             cursor: pointer;
-        }
-
-        .task__completed {
-            text-decoration: line-through;
-            color: gray;
         }
 
         .task__btn {
@@ -32,5 +27,12 @@
         .task__btn:hover {
             cursor: pointer;
         }
+    }
+}
+
+.task[data-completed] {
+    .task__text {
+        text-decoration: line-through;
+        color: #c3c1c1;
     }
 }
