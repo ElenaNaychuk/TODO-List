@@ -26,3 +26,17 @@
         color: #3e0d0d;
     }
 }
+
+@media screen and (max-width: 599.98px) {
+    .list {
+        width: 90%;
+
+        .list__select {
+            width: 50%;
+        }
+
+        .list__count {
+            font-size: 16px;
+        }
+    }
+}

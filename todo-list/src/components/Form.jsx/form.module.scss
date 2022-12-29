@@ -49,6 +49,16 @@
 
     .error {
         color: red;
-        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 599.98px) {
+    .form {
+        .form__input {
+            width: 80%;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
     }
 }

@@ -36,3 +36,20 @@
         color: #c3c1c1;
     }
 }
+
+@media screen and (max-width: 599.98px) {
+    .task {
+        padding: 10px 5px;
+
+        .task__block {
+            display: flex;
+            flex-direction: column;
+            border-bottom: none;
+
+            .task__text {
+                margin-bottom: 10px;
+                font-size: 17px;
+            }
+        }
+    }
+}
