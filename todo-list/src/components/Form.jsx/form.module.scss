@@ -1,6 +1,7 @@
 .form {
     margin: 40px;
     text-align: center;
+    margin-bottom: 60px;
 
     .form__warning {
         font-family: 'Inter';
@@ -36,5 +37,18 @@
 
     .form__btn:hover {
         cursor: pointer;
+    }
+
+    .form__disabled {
+        opacity: 0.4;
+    }
+
+    .form__disabled:hover {
+        cursor: not-allowed;
+    }
+
+    .error {
+        color: red;
+        margin-top: 5px;
     }
 }

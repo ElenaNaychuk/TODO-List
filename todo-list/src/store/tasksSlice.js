@@ -18,11 +18,7 @@ const tasksSlice = createSlice({
             item.completed = !item.completed;
         },
         deleteTask(state, action) {
-            console.log('tasks slice before:')
-            console.log(state.tasksList)
             state.tasksList = state.tasksList.filter(task => task.id !== action.payload.id);
-            console.log('tasks slice after:')
-            console.log(state.tasksList)
         }
     }
 })
