@@ -1,0 +1,40 @@
+.form {
+    margin: 40px;
+    text-align: center;
+
+    .form__warning {
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 300;
+
+        span {
+            color: red;
+        }
+    }
+
+    .form__input {
+        width: 50%;
+        height: 45px;
+        padding-left: 7px;
+        border: 1px solid #3e0d0d;
+        font-family: 'Inter';
+        font-size: 20px;
+    }
+
+    .form__btn {
+        height: 45px;
+        line-height: 45px;
+        border: none;
+        background-color: #f3cc99;
+        border: 1px solid #3e0d0d;
+        color: #3e0d0d;
+        margin-left: 10px;
+        padding: 0 8px;
+        font-family: 'Inter';
+        font-size: 16px;
+    }
+
+    .form__btn:hover {
+        cursor: pointer;
+    }
+}

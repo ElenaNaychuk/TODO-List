@@ -1,0 +1,36 @@
+.task {
+    padding: 10px 20px;
+    list-style-type: none;
+
+    .task__block {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid gray;
+
+        .task__text {
+            font-family: 'Inter';
+            font-size: 22px;
+            font-weight: 300;
+            cursor: pointer;
+        }
+
+        .task__completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .task__btn {
+            width: 70px;
+            height: 25px;
+            background-color: #f3cc99;
+            border: none;
+            font-family: 'Inter';
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .task__btn:hover {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #3e0d0d;
+    background-color: #f3cc99;
+    font-family: 'Inter';
+    font-size: 26px;
+    font-weight: 500;
+}
