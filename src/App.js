@@ -1,4 +1,4 @@
-import Form from './components/Form.jsx/Form';
+import TaskAddingForm from './components/TaskAddingForm/TaskAddingForm.jsx';
 import TasksList from './components/TasksList/TaskList';
 import './style/App.css';
 
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header>Мои задачи</header>
       <TasksList />
-      <Form />
+      <TaskAddingForm />
     </div>
   );
 }

@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 import { addTask } from '../../store/tasksSlice';
 import style from './form.module.scss';
 
-function Form() {
+function TaskAddingForm() {
     const [taskText, setTaskText] = useState('');
     const [error, setError] = useState('');
 
     const dispatch = useDispatch();
 
     const ref = useRef(null);
-    useEffect(() => ref.current.focus(), []);
+    useEffect(() => ref.current.focus(), [taskText]);
 
     const validate = (taskText) => {
         let error;
@@ -56,9 +56,9 @@ function Form() {
             >
                 Добавить
             </button>
-            {error && <div className={style.error}>{error}</div>}
+            {error ? <div className={style.error}>{error}</div> : null}
         </div>
     );
 }
 
-export default Form;
+export default TaskAddingForm;
