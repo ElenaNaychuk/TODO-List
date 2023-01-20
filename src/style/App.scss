@@ -11,7 +11,9 @@ $white: #fff;
 $family: 'Montserrat', sans-serif;
 
 .App {
-    max-width: 1400px;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
     background:
         linear-gradient(180deg,
             rgba(229, 0, 0, 0.71) 9.02%,
@@ -22,9 +24,13 @@ $family: 'Montserrat', sans-serif;
 .header {
     height: 70px;
     line-height: 70px;
-    padding-left: 100px;
     background-color: rgba(34, 34, 34, 1);
     @include font($bold, $font-28, $white);
+
+    .title {
+        width: 70%;
+        margin: 0 auto;
+    }
 }
 
 .logo {

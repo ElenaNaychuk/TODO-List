@@ -5,7 +5,9 @@ import './style/App.scss';
 function App() {
   return (
     <div className="App">
-      <header className='header'>Мои задачи</header>
+      <header className='header'>
+        <div className='title'>Мои задачи</div>
+      </header>
       <img className='logo' src={process.env.PUBLIC_URL + '/assets/images/Logo.svg'} alt="logo" />
       <TaskAddingForm />
       <TasksList />
