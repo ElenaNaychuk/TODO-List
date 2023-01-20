@@ -30,18 +30,28 @@ function TasksList() {
         return tasks.filter(filterFn);
     }
 
+    const today = new Date();
+    const todeyData = today.toLocaleDateString('en-US');
+
     return (
         <section className={style.list}>
-            <select
-                onChange={e => setSelectedOption(e.target.value)}
-                className={style.list__select}
-                name="task-selection"
-                value={selectedOption}
-            >
-                <option value="all">Все</option>
-                <option value="completed">Выполненные</option>
-                <option value="incomplete">Невыполненные</option>
-            </select>
+            <div className={style.task__title}>
+                <div className={style.task__titleText}>Сегодня</div>
+                <div className={style.task__date}>{todeyData}</div>
+            </div>
+            <div className={style.list__tasks_all}>
+                <h5 className={style.list__taskNumber}>{tasks.length} задач</h5>
+                <select
+                    onChange={e => setSelectedOption(e.target.value)}
+                    className={style.list__select}
+                    name="task-selection"
+                    value={selectedOption}
+                >
+                    <option value="all">Все</option>
+                    <option value="completed">Выполненные</option>
+                    <option value="incomplete">Невыполненные</option>
+                </select>
+            </div>
             <ul className={style.list__tasks}>
                 {filterTasks(tasks, selectedOption)
                     .map(task => <TaskItem key={task.id} {...task} />)}

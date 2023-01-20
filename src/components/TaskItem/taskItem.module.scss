@@ -1,27 +1,54 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+$bold: 600;
+
+$font-20: 20px;
+
+$black: #000;
+$dark-gray: #D9D9D9;
+$white: #fff;
+$light-gray: #EEEEEE;
+$blue: rgba(26, 184, 219, 1);
+
+$family: 'Montserrat', sans-serif;
+
 .task {
+    height: 50px;
+    background-color: $light-gray;
+    border-radius: 6px;
     padding: 10px 20px;
+    margin: 11px 0;
     list-style-type: none;
 
     .task__block {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #c3c1c1;
+        display: grid;
+        grid-template-columns: 1fr 7fr 1fr;
+        height: 100%;
+        align-content: center;
 
-        .task__text {
-            font-family: 'Inter';
-            font-size: 18px;
-            font-weight: 300;
+        .task__checkbox {
             cursor: pointer;
         }
 
+        .task__taskText {
+            @include font($light, $font-20, $black);
+        }
+
         .task__btn {
-            width: 70px;
-            height: 25px;
-            background-color: #f3cc99;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: $white;
             border: none;
-            font-family: 'Inter';
-            font-size: 15px;
-            font-weight: 300;
+            color: $blue;
+            font-size: 30px;
         }
 
         .task__btn:hover {
@@ -31,7 +58,7 @@
 }
 
 .task[data-completed] {
-    .task__text {
+    .task__taskText {
         text-decoration: line-through;
         color: #c3c1c1;
     }
@@ -42,12 +69,10 @@
         padding: 10px 5px;
 
         .task__block {
-            display: flex;
-            flex-direction: column;
-            border-bottom: none;
+            grid-template-columns: 1fr 9fr 1fr;
+            align-items: center;
 
-            .task__text {
-                margin-bottom: 10px;
+            .task__taskText {
                 font-size: 17px;
             }
         }

@@ -1,0 +1,48 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$bold: 600;
+$font-28: 28px;
+$white: #fff;
+$family: 'Montserrat', sans-serif;
+
+.App {
+    max-width: 1400px;
+    background:
+        linear-gradient(180deg,
+            rgba(229, 0, 0, 0.71) 9.02%,
+            rgba(221, 6, 7, 0.720854) 11.25%,
+            #1593AF 68.67%);
+}
+
+.header {
+    height: 70px;
+    line-height: 70px;
+    padding-left: 100px;
+    background-color: rgba(34, 34, 34, 1);
+    @include font($bold, $font-28, $white);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 35px;
+    left: 46.5%;
+}
+
+@media screen and (max-width: 599.98px) {
+    .header {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .logo {
+        top: 60px;
+        left: 36%;
+    }
+}

@@ -12,17 +12,15 @@ function TaskItem({ id, text, completed }) {
             data-completed={completed || null}
         >
             <div className={style.task__block}>
-                <p
-                    onClick={() => dispatch(toggleTaskCompletion({ id }))}
-                    className={style.task__text}
-                >
-                    {text}
-                </p>
+                <input onClick={() => dispatch(toggleTaskCompletion({ id }))}
+                    className={style.task__checkbox} type="checkbox"
+                />
+                <p className={style.task__taskText}>{text}</p>
                 <button
                     onClick={() => dispatch(deleteTask({ id }))}
                     className={style.task__btn}
                 >
-                    Удалить
+                    &#10006;
                 </button>
             </div>
         </li>

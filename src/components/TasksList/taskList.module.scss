@@ -1,29 +1,71 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+$bold: 600;
+
+$font-26: 26px;
+$font-24: 24px;
+$font-20: 20px;
+$font-16: 16px;
+
+$black: #000;
+$dark-gray: #D9D9D9;
+$white: #fff;
+
+$family: 'Montserrat', sans-serif;
+
 .list {
     width: 70%;
     margin: 30px auto;
+    padding-bottom: 100px;
 
-    .list__select {
-        width: 30%;
-        height: 30px;
-        margin: 20px 0;
-        border: none;
-        border: 1px solid #3e0d0d;
-        font-family: 'Inter';
-        font-size: 16px;
+    .task__title {
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 2px solid $dark-gray;
+        margin-bottom: 11px;
+
+        .task__titleText,
+        .task__date {
+            @include font($normal, $font-24, $white);
+        }
+    }
+
+    .list__tasks_all {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 10px 20px;
+        background-color: $dark-gray;
+
+        .list__taskNumber {
+            @include font($light, $font-26, $black);
+        }
+
+        .list__select {
+            width: 200px;
+            height: 70%;
+            border: 1px solid $black;
+            @include font($light, $font-16, $black);
+        }
     }
 
     .list__tasks {
         min-height: 300px;
-        background-color: #f9f3eb;
-        padding: 20px;
     }
 
     .list__count {
-        font-family: 'Inter';
-        font-size: 18px;
-        padding: 5px 20px;
-        background-color: #f9f3eb;
-        color: #3e0d0d;
+        @include font($light, $font-20, $white);
+        padding: 5px 0;
     }
 }
 
@@ -31,12 +73,14 @@
     .list {
         width: 90%;
 
-        .list__select {
-            width: 50%;
+        .list__tasks_all {
+            .list__select {
+                width: 50%;
+            }
         }
 
         .list__count {
-            font-size: 16px;
+            @include font($light, $font-16, $white);
         }
     }
 }

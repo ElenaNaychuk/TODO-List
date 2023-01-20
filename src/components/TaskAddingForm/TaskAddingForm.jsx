@@ -29,17 +29,20 @@ function TaskAddingForm() {
     }
 
     const handleChange = (e) => {
+        e.preventDefault();
         setTaskText(e.target.value);
         setError(validate(e.target.value));
     }
 
-    const addTodo = () => {
+    const addTodo = (e) => {
+        e.preventDefault();
         dispatch(addTask({ taskText: taskText.trim() }));
         setTaskText('');
     }
 
     return (
-        <div className={style.form}>
+        <form className={style.form}>
+            <p className={style.form__title}>Добавить задачу</p>
             <p className={style.form__warning}><span>*</span>Не более 50 символов</p>
             <input
                 onChange={handleChange}
@@ -57,7 +60,7 @@ function TaskAddingForm() {
                 Добавить
             </button>
             {error ? <div className={style.error}>{error}</div> : null}
-        </div>
+        </form>
     );
 }
 

@@ -1,46 +1,75 @@
+@mixin font($weight, $size, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+$light: 400;
+$normal: 500;
+$bold: 600;
+
+$font-20: 20px;
+$font-22: 22px;
+$font-18: 18px;
+$font-16: 16px;
+
+$family: 'Montserrat', sans-serif;
+
+$black: #000;
+$dark-gray: #D9D9D9;
+$white: #fff;
+$blue: rgba(26, 184, 219, 1);
+$red: red;
+
+*,
+a:focus {
+    outline: none !important;
+}
+
 .form {
-    margin: 40px;
-    text-align: center;
-    margin-bottom: 60px;
+    width: max-content;
+    margin: 100px auto 60px;
 
-    .form__warning {
-        font-family: 'Inter';
-        font-size: 16px;
-        font-weight: 300;
-
-        span {
-            color: red;
-        }
+    .form__title {
+        text-align: center;
+        margin: 10px;
+        @include font($light, $font-22, $white);
     }
 
     .form__input {
-        width: 50%;
-        height: 45px;
+        width: 320px;
+        height: 50px;
         padding-left: 7px;
-        border: 1px solid #3e0d0d;
-        font-family: 'Inter';
-        font-size: 20px;
+        background: $white;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        @include font($light, $font-20, $black);
     }
 
     .form__btn {
-        height: 45px;
-        line-height: 45px;
+        height: 50px;
+        line-height: 50px;
         border: none;
-        background-color: #f3cc99;
-        border: 1px solid #3e0d0d;
-        color: #3e0d0d;
+        background-color: $blue;
+        border-radius: 10px;
         margin-left: 10px;
         padding: 0 8px;
-        font-family: 'Inter';
-        font-size: 16px;
+        @include font($normal, $font-16, $white);
     }
 
     .form__btn:hover {
         cursor: pointer;
     }
 
-    .form__btn[disabled] {
-        opacity: 0.4;
+    .form__warning {
+        margin-top: 10px;
+        @include font($light, $font-16, $white);
+        font-family: 'Montserrat';
+
+        span {
+            color: red;
+        }
     }
 
     .form__btn[disabled]:hover {
@@ -48,17 +77,27 @@
     }
 
     .error {
-        color: red;
-        margin-bottom: 5px;
+        @include font($light, $font-16, $red);
+        margin: 5px;
     }
 }
 
 @media screen and (max-width: 599.98px) {
     .form {
+        width: 90%;
+        margin: 80px auto 60px;
+
         .form__input {
-            width: 80%;
-            margin-bottom: 10px;
-            font-size: 18px;
+            width: 98%;
+            display: block;
+            margin: 5px auto 10px;
+        }
+
+        .form__btn {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            @include font($normal, $font-18, $white);
         }
     }
 }
