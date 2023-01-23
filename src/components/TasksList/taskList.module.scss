@@ -46,6 +46,7 @@ $family: 'Montserrat', sans-serif;
         height: 50px;
         padding: 10px 20px;
         background-color: $dark-gray;
+        border-radius: 6px;
 
         .list__taskNumber {
             @include font($light, $font-26, $black);
@@ -59,7 +60,7 @@ $family: 'Montserrat', sans-serif;
         }
     }
 
-    .list__tasks {
+    ul {
         min-height: 300px;
     }
 

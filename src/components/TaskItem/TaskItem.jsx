@@ -7,13 +7,16 @@ function TaskItem({ id, text, completed }) {
     const dispatch = useDispatch();
 
     return (
-        <li
+        <div
             className={style.task}
             data-completed={completed || null}
         >
             <div className={style.task__block}>
-                <input onClick={() => dispatch(toggleTaskCompletion({ id }))}
-                    className={style.task__checkbox} type="checkbox"
+                <input
+                    onClick={() => dispatch(toggleTaskCompletion({ id }))}
+                    className={style.task__checkbox}
+                    type="checkbox"
+                    defaultChecked={completed}
                 />
                 <p className={style.task__taskText}>{text}</p>
                 <button
@@ -23,7 +26,7 @@ function TaskItem({ id, text, completed }) {
                     &#10006;
                 </button>
             </div>
-        </li>
+        </div>
     );
 }
 

@@ -1,17 +1,25 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { Reorder } from 'framer-motion';
 import TaskItem from '../TaskItem/TaskItem';
+import { reorderTasks } from '../../store/tasksSlice';
 
-import style from './taskList.module.scss'
+import style from './taskList.module.scss';
 
 function TasksList() {
-    const [selectedOption, setSelectedOption] = useState('')
+    const [selectedOption, setSelectedOption] = useState('');
 
     const tasks = useSelector(state => state.tasks.tasksList);
-
     const completedTasksCount = tasks.filter(task => task.completed).length;
     const incompleteTasksCount = tasks.length - completedTasksCount;
+
+    const dispatch = useDispatch();
+
+    const setTaskList = (newTasks) => {
+        dispatch(reorderTasks(newTasks));
+    };
 
     function filterTasks(tasks, selectedOption) {
         let filterFn;
@@ -52,10 +60,16 @@ function TasksList() {
                     <option value="incomplete">Невыполненные</option>
                 </select>
             </div>
-            <ul className={style.list__tasks}>
+            <Reorder.Group as='ul' axys='y' values={tasks} onReorder={setTaskList}>
                 {filterTasks(tasks, selectedOption)
-                    .map(task => <TaskItem key={task.id} {...task} />)}
-            </ul>
+                    .map((task) =>
+                        <Reorder.Item value={task} key={task.id}>
+                            <TaskItem
+                                {...task}
+                            />
+                        </Reorder.Item>
+                    )}
+            </Reorder.Group>
             <div className={style.list__count}>Выполненные задачи: {completedTasksCount}</div>
             <div className={style.list__count}>Невыполненные задачи: {incompleteTasksCount}</div>
         </section>

@@ -19,61 +19,71 @@ $blue: rgba(26, 184, 219, 1);
 
 $family: 'Montserrat', sans-serif;
 
-.task {
-    height: 50px;
-    background-color: $light-gray;
-    border-radius: 6px;
-    padding: 10px 20px;
-    margin: 11px 0;
+li {
     list-style-type: none;
+    cursor: grab;
 
-    .task__block {
-        display: grid;
-        grid-template-columns: 1fr 7fr 1fr;
-        height: 100%;
-        align-content: center;
+    .task {
+        height: 50px;
+        background-color: $light-gray;
+        border-radius: 6px;
+        padding: 10px 20px;
+        margin: 11px 0;
 
-        .task__checkbox {
-            cursor: pointer;
-        }
+        .task__block {
+            display: grid;
+            grid-template-columns: 1fr 7fr 1fr;
+            height: 100%;
+            align-content: center;
 
-        .task__taskText {
-            @include font($light, $font-20, $black);
-        }
+            .task__checkbox {
+                cursor: pointer;
+            }
 
-        .task__btn {
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            background-color: $white;
-            border: none;
-            color: $blue;
-            font-size: 30px;
-        }
+            .task__taskText {
+                @include font($light, $font-20, $black);
+            }
 
-        .task__btn:hover {
-            cursor: pointer;
+            .task__btn {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                background-color: $white;
+                border: none;
+                color: $blue;
+                font-size: 30px;
+            }
+
+            .task__btn:hover {
+                cursor: pointer;
+            }
         }
     }
 }
 
-.task[data-completed] {
-    .task__taskText {
-        text-decoration: line-through;
-        color: #c3c1c1;
+li {
+    .task[data-completed] {
+        .task__block {
+            .task__taskText {
+                text-decoration: line-through;
+                color: #c3c1c1;
+            }
+        }
     }
 }
 
 @media screen and (max-width: 599.98px) {
-    .task {
-        padding: 10px 5px;
+    li {
+        .task {
+            padding: 10px 5px;
 
-        .task__block {
-            grid-template-columns: 1fr 9fr 1fr;
-            align-items: center;
+            .task__block {
+                grid-template-columns: 1fr 9fr 1fr;
+                align-items: center;
 
-            .task__taskText {
-                font-size: 17px;
+                .task__taskText {
+                    font-size: 17px;
+                }
             }
         }
     }
